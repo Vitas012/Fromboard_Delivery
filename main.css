@@ -1,0 +1,512 @@
+@import url(./reset.css);
+
+/* Шрифты */
+
+@font-face {
+  font-family: "formular";
+  font-weight: 400; /* Regular */
+  font-style: normal;
+  src: url(./fonts/Formular.woff2);
+}
+
+@font-face {
+  font-family: "formular";
+  font-weight: 900; /* Black */
+  font-style: normal;
+  src: url(./fonts/Formular-Black.woff2);
+}
+
+@font-face {
+  font-family: "formular";
+  font-weight: 700; /* Bold */
+  font-style: normal;
+  src: url(./fonts/Formular-Bold.woff2);
+}
+
+@font-face {
+  font-family: "formular";
+  font-weight: 300; /* Light */
+  font-style: normal;
+  src: url(./fonts/Formular-Light.woff2);
+}
+
+:root {
+  --black: #111827;
+  --violet: #8b5cf6;
+  --light-violet: #a78bfa;
+  --white: #f9fafb;
+  --grey: #e5e7eb;
+  --light-grey: #9ca3af;
+
+  --bg-color: var(--grey);
+  --text-color: var(--black);
+  --button-bg-color: var(--violet);
+  --button-text-color: var(--white);
+  --input-text-color: var(--light-grey);
+  --border-color: var(--light-violet);
+}
+
+body,
+html {
+  font-family: "formular", "san-serif";
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+/* Gallary images */
+
+.lightbox {
+  display: none; /**sets the default display to hide the lightbox until it's the :target**/
+  position: fixed; /**the rest of this styling makes the lightbox full screen when selected**/
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+.lightbox img {
+  /**sets the styling of the image in the lightbox**/
+  max-width: 80%;
+  max-height: 90%;
+  text-align: center;
+  margin-top: 2%;
+}
+.lightbox:target {
+  /**this is where the magic happens. makes the lightbox display when it's the target of a clickable link**/
+  outline: none;
+  display: block;
+}
+.previous {
+  /**styling the left arrow**/
+  position: fixed;
+  left: 4px;
+  top: 40%;
+  width: 40px;
+}
+.exit {
+  /**styling the exit button**/
+  position: fixed;
+  top: 4px;
+  right: 4px;
+  width: 40px;
+}
+.next {
+  /**styling the right arrow**/
+  position: fixed;
+  right: 4px;
+  top: 40%;
+  width: 40px;
+}
+
+/* MAIN */
+
+.container {
+  max-width: 1566px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.btn {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border-radius: 4px;
+
+  transition: opacity 0.2s ease-in-out;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+/* HEADER */
+
+.header {
+  background-color: var(--white);
+}
+
+.header-container {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.header-top__logo {
+  display: flex;
+  align-items: center;
+}
+
+.header-top__logo-text {
+  color: var(--text-color);
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.header-top__info {
+  display: flex;
+  text-align: end;
+  align-items: center;
+  column-gap: 12px;
+}
+
+.header-top__cost {
+  padding-right: 12px;
+  border-right: 1px solid var(--light-violet);
+}
+
+.header-top__cost-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.header-top__tel {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 40px;
+}
+
+.header-top__tel-text {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 32px;
+}
+
+/* NAV */
+
+.nav__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  column-gap: 24px;
+}
+
+.nav__link {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--text-color);
+  transition: color 0.2s ease-in;
+}
+
+.nav__link.--active {
+  border-bottom: 2px dashed;
+  color: var(--light-violet);
+}
+
+.nav__link:hover {
+  color: var(--light-violet);
+}
+
+.nav__btn {
+  padding: 10px 28px;
+  width: 196px;
+}
+
+/* MAIN */
+
+.main {
+  background-color: var(--bg-color);
+}
+
+.hero {
+  padding: 72px 0;
+}
+
+.hero_container {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.hero-left {
+  grid-column: 6 span;
+}
+
+.hero-left__title {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 40px;
+}
+
+.hero-left__descr {
+  margin-top: 12px;
+  margin-bottom: 16px;
+
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.hero-left__image {
+  border-radius: 16px;
+}
+
+.hero-right {
+  grid-column: 6 span;
+  border-radius: 16px;
+
+  background-color: var(--white);
+}
+
+.hero-form {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+  padding: 24px 0;
+}
+
+.hero-form__text {
+  grid-column: 2/4 span;
+  text-align: center;
+}
+
+.hero-form__title {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+.hero-form__descr {
+  margin-top: 16px;
+  max-width: 358px;
+  margin: 16px auto 0;
+  line-height: 24px;
+}
+
+.hero-form__form {
+  grid-column: 2/4 span;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.hero-form__label {
+  border: 2px solid var(--black);
+  border-radius: 4px;
+  transition: border-color 0.2s ease-in;
+}
+
+.hero-form__label:focus {
+  outline: none;
+}
+
+.hero-form__label:hover {
+  border-color: var(--border-color);
+}
+
+.hero-form__lable-name {
+  grid-column: 2 span;
+}
+
+.hero-form__btn {
+  grid-column: 2 span;
+}
+
+.hero-form__input {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  padding: 12px;
+  border: none;
+  color: var(--input-text-color);
+}
+
+.hero-form__input:focus {
+  outline: none;
+}
+
+.hero-form__input::placeholder {
+  color: var(--input-text-color);
+  transition: color 0.2s ease-in-out;
+}
+
+.hero-form__input:hover::placeholder {
+  color: var(--light-violet);
+}
+
+.hero-form__btn {
+  padding: 10px 0;
+}
+
+/* BENEFITS */
+
+.benefits {
+  padding-bottom: 72px;
+}
+
+.style-title {
+  margin-bottom: 24px;
+
+  text-align: center;
+
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 36px;
+}
+
+.benefits__list {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.benefits__item {
+  grid-column: 4 span;
+  align-items: center;
+  padding: 24px;
+  padding-left: 148px;
+  background-repeat: no-repeat;
+  background-size: 126px 126px;
+  background-position: left center;
+}
+
+.benefits__subtitle {
+  margin-bottom: 12px;
+
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 32px;
+}
+
+.benefits__descr {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+#benefits-board {
+  background-image: url(./images/svg/Board.svg);
+}
+#benefits-package {
+  background-image: url(./images/svg/Package.svg);
+}
+#benefits-delivery {
+  background-image: url(./images/svg/Delivery.svg);
+}
+#benefits-best-support {
+  background-image: url(./images/svg/best-support.svg);
+}
+#benefits-clear-info {
+  background-image: url(./images/svg/clear-info.svg);
+}
+#benefits-garantee {
+  background-image: url(./images/svg/garantee.svg);
+}
+
+/* GARANTY */
+
+.garanty {
+  padding-bottom: 72px;
+}
+
+.garanty__desc {
+  margin: 0 auto;
+  margin-bottom: 24px;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  max-width: 756px;
+}
+
+.garanty__list {
+  margin-bottom: 36px;
+
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.garanty__item {
+  grid-column: 3 span;
+}
+
+.garanty__item .garanty__image {
+  transition: transform 0.7s;
+}
+
+.garanty__item:hover .garanty__image {
+  transform: scale(1.03, 1.03);
+}
+
+.garanty__subtitle {
+  margin-top: 4px;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 28px;
+  text-align: center;
+}
+
+.garanty-button {
+  text-align: center;
+}
+
+.garanty-btn {
+  display: inline-block;
+  padding: 16px 28px;
+
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 24px;
+}
+
+/* REVIEWS */
+
+.reviews {
+  padding-bottom: 72px;
+}
+
+.reviews-cards {
+  margin: 0 auto;
+  max-width: 1276px;
+  min-height: 318px;
+}
+
+.reviews__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 16px;
+  padding: 32px 43px;
+  margin: 0 12px;
+  width: 626px;
+  height: 318px;
+  background-color: var(--white);
+
+  background-image: url(./images/svg/Quotes.svg);
+  background-repeat: no-repeat;
+  background-position: 95% 95%;
+}
+
+.reviews__text {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.reviews__name {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 32px;
+  color: var(--input-text-color);
+}
